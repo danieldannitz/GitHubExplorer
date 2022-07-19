@@ -1,8 +1,9 @@
 interface Props {
-  repository: string;
-  name: string;
-  description: string;
-  html_url: string;
+  repository: {
+    name: string;
+    description: string;
+    html_url: string;
+  };
 }
 
 export function RepositoryItem(props: Props) {
