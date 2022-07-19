@@ -1,6 +1,14 @@
 section.repository-list {
   margin: 2.5rem;
-
+  textarea {
+    display: block;
+    margin: 0 auto;
+    resize: none;
+    border-radius: 8px;
+    margin-top: 1.75rem;
+    width: 15.75rem;
+    height: 2rem;
+  }
   h1 {
     margin-bottom: 1rem;
     text-align: center;
