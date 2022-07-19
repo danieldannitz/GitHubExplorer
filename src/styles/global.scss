@@ -9,3 +9,15 @@ body {
   font-family: Helvetica-neue, arial, sans-serif;
   color: #121214;
 }
+
+@media (max-width: 900px) {
+  section.repository-list {
+    ul {
+      flex-direction: column;
+      font-size: 22px;
+      p {
+        font-size: 22px;
+      }
+    }
+  }
+}
