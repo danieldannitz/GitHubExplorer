@@ -1,4 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, {
+  SetStateAction,
+  TextareaHTMLAttributes,
+  useEffect,
+  useState,
+} from "react";
 import { RepositoryItem } from "./RepositoryItem";
 
 import "../styles/respositories.scss";
@@ -14,22 +19,22 @@ export function RepositoryList() {
       .then((data) => setRepositories(data));
   }, []);
 
-  function handleFilter() {
-    setSearchTerm(event?.target.value);
+  function handleFilter(event: React.ChangeEvent<TextareaHTMLAttributes<any>>) {
+    const value = event.target.value as SetStateAction<any>;
+    setSearchTerm(value);
   }
 
   return (
     <section className="repository-list">
       <h1>Lista de repositórios</h1>
-      <textarea value={searchTerm} onChange={handleFilter}></textarea>
+      <textarea
+        value={searchTerm}
+        onChange={(event) => handleFilter(event)}
+      ></textarea>
       <ul>
         {repositories
           .filter((val) => {
-            if (searchTerm === "") {
-              return val;
-            } else if (
-              val.name.toLowerCase().includes(searchTerm?.toLowerCase())
-            ) {
+            if (val.name.toLowerCase().includes(searchTerm)) {
               return val;
             }
           })
